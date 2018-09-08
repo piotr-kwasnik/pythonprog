@@ -21,7 +21,9 @@ import csv
 def parse_stock_data(lines):
     rows = csv.reader(lines)
     types = [str, float, str, str, float, float, float, float, int]
-    converted = ( [func(val) for func, val in zip(types, row)] for row in rows)
+    converted = ([func(val) for func, val in zip(types, row)]
+                 for row in rows)
+
     return converted
 
 lines = follow('../../Data/stocklog.csv')
